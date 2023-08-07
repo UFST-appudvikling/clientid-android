@@ -11,7 +11,7 @@ internal var hostApplicationContext: Context? = null
 
 class InitProvider: ContentProvider() {
     override fun onCreate(): Boolean {
-        Log.d("TicketAuth", "TicketAuth ${BuildConfig.CLIENTID_VERSION} initializing")
+        Log.d("ClientId", "TicketAuth ${BuildConfig.CLIENTID_VERSION} initializing")
         hostApplicationContext = context
         return false
     }
