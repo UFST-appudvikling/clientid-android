@@ -7,12 +7,12 @@ import android.database.Cursor
 import android.net.Uri
 import android.util.Log
 
-internal var hostApplicationContext: Context? = null
+//internal var hostApplicationContext: Context? = null
 
 class InitProvider: ContentProvider() {
     override fun onCreate(): Boolean {
-        Log.d("ClientId", "TicketAuth ${BuildConfig.CLIENTID_VERSION} initializing")
-        hostApplicationContext = context
+        Log.d("ClientId", "ClientId ${BuildConfig.CLIENTID_VERSION} initializing")
+        ClientId.init(context!!)
         return false
     }
 
