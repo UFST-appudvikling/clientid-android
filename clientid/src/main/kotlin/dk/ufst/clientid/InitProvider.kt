@@ -2,12 +2,9 @@ package dk.ufst.clientid
 
 import android.content.ContentProvider
 import android.content.ContentValues
-import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import android.util.Log
-
-//internal var hostApplicationContext: Context? = null
 
 class InitProvider: ContentProvider() {
     override fun onCreate(): Boolean {

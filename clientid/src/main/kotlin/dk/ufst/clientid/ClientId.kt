@@ -5,7 +5,6 @@ import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import java.util.UUID
 
-
 class ClientId internal constructor(context: Context)
 {
     private var clientId: String = ""
@@ -38,16 +37,21 @@ class ClientId internal constructor(context: Context)
         log("clientVersion: $clientVersion")
     }
 
-    private fun getHeaders(): Map<String, String> =
-        TODO()
+    private fun getRequestHeaders(): Map<String, String> = mapOf(
+        "X-UFST-Client-ID" to clientId,
+        "X-UFST-Client-Platform" to clientPlatform,
+        "X-UFST-Client-Version" to clientVersion,
+        "X-UFST-Client-ID" to UUID.randomUUID().toString(),
+    )
+
 
     companion object {
         fun init(context: Context) {
             instance = ClientId(context)
         }
 
-        fun getHeaders() = checkInit {
-            getHeaders()
+        fun getRequestHeaders() = checkInit {
+            getRequestHeaders()
         }
 
         private fun <T>checkInit(block: ClientId.()->T): T =
